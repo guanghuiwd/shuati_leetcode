@@ -1,0 +1,21 @@
+https://www.cnblogs.com/klb561/p/9311375.html  字符串格式化，format
+以下是 int() 方法的语法:
+class int(x, base=10)
+如何便捷的查语言的函数。  技能。
+int('10',8)  = 8
+
+我的：
+    def reverseBits(self, n):
+        n=bin(n)
+        n=n[:1:-1]
+        n='{:0<32}'.format(n)
+        n=int(n,base=2)
+        return n
+
+
+一行方法：
+return int(bin(n)[2:].zfill(32)[::-1],2)
+
+python函数最好的字典。
+java函数最好的字典。
+我感觉我的编程上道了。上道了上道了。
