@@ -17,7 +17,7 @@ class Solution:
         return answer
         # 只能针对只有一个唯一大值的情况。
 
-
+官方正确：
 class Solution:
     def findShortestSubArray(self, nums: List[int]) -> int:
         left, right, count = {}, {}, {}
