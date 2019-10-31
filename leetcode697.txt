@@ -3,4 +3,16 @@
 这段代码是LeetCode上的，我没有接触过这种定义写法。 (self, nums: List[int]) -> int:
 这是新增语法，为了说明参数和返回值的数据类型。
 不过仅仅的给人看的，实际上程序并不检查是否是相符的。
-
+废：枚举函数enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。
+一个错误例子：
+class Solution:
+    def findShortestSubArray(self, nums: List[int]) -> int:
+        from collections import Counter
+        zidian=Counter(nums)
+        key = max(zip(zidian.values(), zidian.keys()))[1]
+        left = nums.index(key)
+        nums.reverse()
+        right = len(nums)-nums.index(key)
+        answer=right-left
+        return answer
+        # 只能针对只有一个唯一大值的情况。
