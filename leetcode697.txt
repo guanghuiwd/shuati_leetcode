@@ -16,3 +16,21 @@ class Solution:
         answer=right-left
         return answer
         # 只能针对只有一个唯一大值的情况。
+
+
+        d = {}
+        for i, num in enumerate(nums):
+            if num not in d:
+                d[num] = [i]
+            else:
+                d[num].append(i)
+        
+        du = 0
+        for num in d:
+            du = max(du, len(d[num]))
+            
+        ans = len(nums)
+        for num in d:
+            if len(d[num]) == du:
+                ans = min(ans, d[num][-1] - d[num][0] + 1)
+        return ans
