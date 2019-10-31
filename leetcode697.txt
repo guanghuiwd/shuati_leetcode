@@ -18,19 +18,20 @@ class Solution:
         # 只能针对只有一个唯一大值的情况。
 
 
-        d = {}
-        for i, num in enumerate(nums):
-            if num not in d:
-                d[num] = [i]
-            else:
-                d[num].append(i)
-        
-        du = 0
-        for num in d:
-            du = max(du, len(d[num]))
-            
+class Solution:
+    def findShortestSubArray(self, nums: List[int]) -> int:
+        left, right, count = {}, {}, {}
+        for i, x in enumerate(nums):
+            if x not in left: left[x] = i
+            right[x] = i
+            count[x] = count.get(x, 0) + 1 # dict.get(key, default=None)这个get非常巧妙，0相当于默认值。
+
         ans = len(nums)
-        for num in d:
-            if len(d[num]) == du:
-                ans = min(ans, d[num][-1] - d[num][0] + 1)
+        degree = max(count.values())
+        for x in count:
+            if count[x] == degree:
+                ans = min(ans, right[x] - left[x] + 1) # 多个相同个数的对比
         return ans
+        
+Python 字典(Dictionary) get() 函数返回指定键的值value，如果值不在字典中返回默认值default
+
