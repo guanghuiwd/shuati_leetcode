@@ -1,0 +1,8 @@
+so ez
+
+class Solution:
+    def countSegments(self, s: str) -> int:
+        return len(s.split())
+
+len()是内置函数，返回对象的长度（元素个数）。
+split:返回分割后的字符串列表。
