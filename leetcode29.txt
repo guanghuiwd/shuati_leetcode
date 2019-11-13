@@ -43,3 +43,5 @@ else:
         if sign: 
             result = -result
         return result if -(1<<31) <= result <= (1<<31)-1 else (1<<31)-1 
+
+# >>=和<<=，就是对变量进行位运算移位之后的结果再赋值给原来的变量，可以类比赋值运算符+=和-=可以理解。
