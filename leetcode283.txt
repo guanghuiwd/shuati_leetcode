@@ -1,0 +1,18 @@
+题目：给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
+
+极简思路： 遍历，删除，增加。
+for i in nums[:]:
+    if i == 0:
+        nums.remove(0)
+        nums.append(0)
+
+
+快速，挤占思路： if循环挤占0位置，while循环添加0
+        loc = 0
+        for num in nums:
+            if num != 0:
+                nums[loc] = num
+                loc += 1
+        while loc < len(nums):
+            nums[loc] = 0
+            loc += 1
