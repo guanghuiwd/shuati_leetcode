@@ -1,0 +1,27 @@
+初始：
+class Solution:
+    def distributeCandies(self, candies: List[int]) -> int:
+        from collections import Counter
+        candies_kind = Counter(candies)
+        k1 = len(candies_kind)
+        k2 = int(len(candies)/2)
+        if(k1 < k2):
+            return k1
+        if(k1 >= k2):
+            return k2
+
+优化：
+不需要字典计数，只需要字典。用set（）即可转字典。但实际发现Counter和set速度差不多！！
+        if len(set(candies)) >= len(candies)/2:
+            return int(len(candies)/2)
+        else:
+            return int(len(set(candies)))
+优化return方面：
+        set1= set(candies)
+        num1 = len(set1)
+        num2 = int(len(candies)/2)
+        return min(num1,num2)
+
+
+
+关于if括号问题：不会，Pycharm 告诉我这是多余的，我就删掉了。
