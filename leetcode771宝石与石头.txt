@@ -1,6 +1,6 @@
 在Python中，我们使用 in 可以直接单个字符是否在一个字符串中，其实相当于对字符串使用了 set() 函数转化为list。
 Python中对for循环的简写，然后转化为向量形式，可以像Python第二种方法来写。（当然可以用numpy包来直接计算，但是这里不能用）
-
+法1：
 class Solution:
     def numJewelsInStones(self, J: str, S: str) -> int:
         return sum(key in J for key in S)
@@ -8,3 +8,9 @@ class Solution:
   key in J for key in S： 结果：generator object <genexpr>
  生成器(generator)概念
 生成器不会把结果保存在一个系列中，而是保存生成器的状态，在每次进行迭代时返回一个值，直到遇到StopIteration异常结束。
+
+
+        return sum(S.count(i) for i in J)
+        
+count() 方法用于统计字符串里某个字符出现的次数。可选参数为在字符串搜索的开始与结束位置。
+str.count(sub, start= 0,end=len(string))
